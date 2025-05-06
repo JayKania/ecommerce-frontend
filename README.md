@@ -1,54 +1,52 @@
-# React + TypeScript + Vite
+# eCommerce App — Frontend
+This is the React frontend for the eCommerce platform. Users can add items to cart, checkout, and view available discounts. Admins can generate discount codes and view user stats.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Tech Stack
+React + TypeScript
 
-Currently, two official plugins are available:
+Material UI
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Axios
 
-## Expanding the ESLint configuration
+React Router
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Features
+Item listing from backend
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Add to cart and checkout flow
+
+Discount code application (every Nth order)
+
+Admin dashboard (generate discount, view user stats)
+
+# Folder Structure
+```bash
+frontend/
+├── pages/
+│   ├── HomePage.tsx     # Item list + add to cart
+│   ├── CartPage.tsx     # Cart view + checkout
+│   └── AdminPage.tsx    # Admin features
+├── utils/
+│   ├── api.tsx          # Axios api helper
+│   ├── helper.tsx       # Get and set current user
+└── App.tsx              # Routes
+└── types
+│   ├── types.tsx        # Contains all the types
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# Start Frontend
+```bash
+npm install
+npm run dev
+## Routes
+/ — Home (items list)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+/cart — Cart and checkout
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+/admin — Admin dashboard
 ```
+
+# Notes
+User is stored in localStorage under userId
+
+Cart is stored on the backend per user
