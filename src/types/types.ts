@@ -10,3 +10,13 @@ export type Product = {
   name: string;
   price: number;
 };
+
+
+export type Stats = {
+  userId: string,
+  totalOrders: number,
+  totalItemsPurchased: number,
+  totalSpent: number,
+  totalDiscount: number,
+  discountCodes: string[],
+}
