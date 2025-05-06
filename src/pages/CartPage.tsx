@@ -104,7 +104,7 @@ export default function CartPage() {
               }
             >
               <ListItemText
-                primary={`Item ID: ${item.itemId}`}
+                primary={`Item Name: ${item.itemName}`}
                 secondary={`Qty: ${item.quantity} | Price: $${item.price}`}
               />
             </ListItem>
